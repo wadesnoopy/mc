@@ -378,25 +378,14 @@ total_output <- data.frame(
   ana_model_a= numeric(0),
   ana_model_a_2sigma = numeric(0),
   ana_model_corr = numeric(0),
-  
-  bayes_ana_age = numeric(0),
-  bayes_ana_age_2sigma = numeric(0),
-  bayes_ana_a= numeric(0),
-  bayes_ana_a_2sigma = numeric(0),
-  bayes_ana_corr = numeric(0),
-  
-  bayes_ana_model_age = numeric(0),
-  bayes_ana_model_age_2sigma = numeric(0),
-  bayes_ana_model_a= numeric(0),
-  bayes_ana_model_a_2sigma = numeric(0),
-  bayes_ana_model_corr = numeric(0)
+
   
 )
 
 
 # Total number of resampling
 
-num_sampling = 10
+num_sampling = 10 # change the number as you need
 
 size_low <- 5
 size_high <- 30
@@ -479,12 +468,7 @@ for (size_sample in N){
   Monte_out <- MonteCarloRegression(df_data, decay)
   print('Monte finished')
   print(Sys.time() - start)
-  
-  
-  # Bayes_out <- BayesRegression(df_data, decay)
-  # print('Bayes finished')
-  # print(Sys.time() - start)
-  
+
   
   total_output <- rbind(total_output, c(Ludwig_out, Monte_out))
   
